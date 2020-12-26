@@ -13,8 +13,11 @@ public class Calculator {
         System.out.println("Enter exit if you want to close the program");
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             String input;
-            do {
-                input = reader.readLine();
+            while (!(input = reader.readLine()).equals("exit")) {
+                if (input.isEmpty()){
+                    System.out.println("Enter arithmetic operation");
+                    continue;
+                }
                 String operator = findOperator(input);
                 int index = input.indexOf(operator);
                 String number1 = input.substring(0, index);
@@ -30,7 +33,7 @@ public class Calculator {
                 } else {
                     throw new IllegalArgumentException("Digits must be only roman or only arabic");
                 }
-            } while (!input.equals("exit"));
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
