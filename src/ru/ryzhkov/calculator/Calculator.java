@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 public class Calculator {
     public void calculate() {
         System.out.println("Enter arithmetic operation");
+        System.out.println("Enter exit if you want to close the program");
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             String input;
             do {
